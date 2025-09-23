@@ -6,7 +6,7 @@
     },
     "servers": [
         {
-            "url": "https://bootcamp-bootcamp.apps.itz-xaao7x.infra01-lb.wdc07.techzone.ibm.com"
+            "url": "https://vzbootcampnj-bootcamp.apps.68d14ea9ba8368133c0b353a.am1.techzone.ibm.com"
         }
     ],
     "paths": {
