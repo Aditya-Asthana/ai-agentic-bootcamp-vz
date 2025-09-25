@@ -161,7 +161,7 @@ In this lab, we will configure a set of 4 agents and 1 supervisor agent inside *
 
 ##### Server Status Agent  
 - **Purpose**: Verifies whether a specific server or URL is currently online and reachable.  
-- **Tools**: Uses a server check tool to confirm availability.  
+- **Tools**: Uses a **MCP server status check tool** to confirm availability.  
 - **Usage**: Handles requests like “Check if verizon.com is up.”  
  
 
@@ -277,7 +277,7 @@ In this lab, it **does not use a knowledge base**. Instead, it calls a `get_data
 
 
 
-Congradulations you've just completed building your frist Agent. The **Network Status Agent** is ready. It will now route natural-language queries to the `get_data` tool to return live network status.
+Congratulations you've just completed building your first Agent. The **Network Status Agent** is ready. It will now route natural-language queries to the `get_data` tool to return live network status.
 
 ---
 
@@ -334,7 +334,7 @@ This agent definition links the Communications Agent with the `outlook_email` to
       ![alt text](images/wxo_agent9.png)
       ![alt text](images/wxo_agent10.png)
 
-   - Lastly add instructions to the Communicaitons Agent
+   - Lastly add instructions to the Communications Agent
      1. Scroll down to the **Behavior** section and add the following instructions.
       ```
       - Your response **must strictly follow this format** when asked to draft an email:
