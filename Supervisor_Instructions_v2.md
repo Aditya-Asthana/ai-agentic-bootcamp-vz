@@ -489,7 +489,7 @@ This is useful for quickly validating if a service endpoint is online when an in
 #### 1) Import the MCP Server Status Toolkit
 This toolkit provides the MCP server that acts as a tool and allows the agent to test HTTP/HTTPS endpoints and return whether they are up or down.
 
-- Run: 
+1. Run: 
 ```
   orchestrate toolkits import \
      --kind mcp \
@@ -497,10 +497,9 @@ This toolkit provides the MCP server that acts as a tool and allows the agent to
      --description "MCP server acts as a tool for server status agent" \
      --command "uvx mcp-proxy https://server-status-mcp.20mlq6u90ef7.us-south.codeengine.appdomain.cloud/sse" \
      --tools "*"
-    
 ``` 
-- Verify: `orchestrate tools list` → you should see `mcp_server_status_tool:check_server_status`
-- https://developer.watson-orchestrate.ibm.com/tools/toolkits#importing-toolkits
+2. Verify: `orchestrate tools list` → you should see `mcp_server_status_tool:check_server_status`
+3. https://developer.watson-orchestrate.ibm.com/tools/toolkits#importing-toolkits
 
 > **Console option (SaaS):** From the Orchestrate web console, MCP server can be imported as a tool during agent configuration via the console under the toolset section. Go to **Toolset → Add tool → Import from MCP Server → Add MCP Server → Enter Server name, Description, Install Command → Connect → Turn on Activation Toggle**
 
