@@ -197,7 +197,7 @@ In this lab, it **does not use a knowledge base**. Instead, it calls a `get_data
       ![alt text](images/wxo_tool3.png)
       ![alt text](images/wxo_tool4.png)
      3. Verify you see an entry for `get_data` tool under the tools homepage.
-     4. If you're using a shared environment change the name of your tool not to overwrite other users work. 
+     4. In your tool homepage, select your tool → Go to options →  Follow the tool naming convention i.e. **get_data**
       ![alt text](images/network_status_tool_info.png)
    -  Explore the Tool Info Screen. 
       1.  Add tool descriptions
@@ -294,13 +294,14 @@ This tool provides the functionality for the agent to send emails via the Outloo
      2. Import the Open API Spec **All Tools → Create tool → Import an external tool → Upload the OpenAPI (wxo_assets/tools/outlook_email_openapi.json) → Select the "Send Email Outlook" operation → Done**
       ![alt text](images/wxo_tool1.png)
       ![alt text](images/wxo_tool2.png)
-      ![alt text](images/wxo_tool3.png)
-      3. If you're using a shared environment change the name of your tool not to overwrite other users work. 
-      ![alt text](images/network_status_tool_info.png)
+      ![alt text](images/wxo_tool5.png)
+     3. In your tool homepage, select your tool → Go to options →  Follow the naming convention i.e. **send_email_in_outlook** →  
+      ![alt text](images/wxo_tool6.png)
 
   -  Explore the Tool Info Screen. 
     1.  Add tool descriptions
     2.  Add descriptions for output schema
+      ![alt text](images/wxo_tool7.png)
     3.  [Writing Tool Descriptions](https://developer.watson-orchestrate.ibm.com/getting_started/guidelines#writing-descriptions-for-tools): Allows agents to identify when to use specific tools.
 
 #
