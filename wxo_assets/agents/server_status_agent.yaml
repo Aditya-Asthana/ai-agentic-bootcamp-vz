@@ -1,7 +1,7 @@
 spec_version: v1
 kind: native
 name: server_status_agent
-llm: watsonx/meta-llama/llama-3-3-70b-instruct
+llm: watsonx/meta-llama/llama-3-2-90b-vision-instruct
 style: default
 hidden: false
 description: >
@@ -10,5 +10,5 @@ instructions: |
   - When the user provides a server URL or address, call the `check_server_status` tool.
 collaborators: []
 tools:
-  - check_server_status
+  - mcp_server_status_tool:check_server_status
 knowledge_base: []

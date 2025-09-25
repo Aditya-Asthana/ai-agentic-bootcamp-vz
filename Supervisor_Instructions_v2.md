@@ -486,13 +486,26 @@ The **Incident Diagnosis Agent** is now ready. It can be invoked directly or thr
 The **Server Status Agent** checks whether a given server or URL is reachable.  
 This is useful for quickly validating if a service endpoint is online when an incident is reported.
 
-#### 1) Import the Server Status Tool
-This tool allows the agent to test HTTP/HTTPS endpoints and return whether they are up or down.
+#### 1) Import the MCP Server Status Toolkit
+This toolkit provides the MCP server that acts as a tool and allows the agent to test HTTP/HTTPS endpoints and return whether they are up or down.
 
-- Run: `orchestrate tools import -k python -f wxo_assets/tools/check_server_status_tool.py`  
-- Verify: `orchestrate tools list` → you should see `check_server_status`
+- Run: 
+```
+  orchestrate toolkits import \
+     --kind mcp \
+     --name mcp_server_status_tool \
+     --description "MCP server acts as a tool for server status agent" \
+     --command "uvx mcp-proxy https://server-status-mcp.20mlq6u90ef7.us-south.codeengine.appdomain.cloud/sse" \
+     --tools "*"
+    
+``` 
+- Verify: `orchestrate tools list` → you should see `mcp_server_status_tool:check_server_status`
 
-> **Console option (SaaS):** From the Orchestrate web console, navigate to **Tools → Add tool → Python**, then upload `wxo_assets/tools/check_server_status_tool.py`.
+> **Console option (SaaS):** From the Orchestrate web console, MCP server can be imported as a tool during agent configuration via the console under the toolset section. Go to **Toolset → Add tool → Import from MCP Server → Add MCP Server → Enter Server name, Description, Install Command → Connect → Turn on Activation Toggle**
+
+> ![alt text](images/mcp_tool1.png)
+> ![alt text](images/mcp_tool2.png)
+
 
 #### 2) Import the Server Status Agent YAML
 This binds the **Server Status Agent** to the `check_server_status` tool you just imported.
