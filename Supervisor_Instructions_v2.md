@@ -489,7 +489,7 @@ This is useful for quickly validating if a service endpoint is online when an in
 #### 1) Import the MCP Server Status Toolkit
 This toolkit provides the MCP server that acts as a tool and allows the agent to test HTTP/HTTPS endpoints and return whether they are up or down. Toolkits are collections of tools that must be imported or removed as a single unit. Currently, watsonx Orchestrate supports one type of toolkit: the Model Context Protocol (MCP).
 
-**What is MCP Servers?**
+**[What is Model Context Protocol (MCP)?](https://www.ibm.com/think/topics/model-context-protocol)**
 
 Model Context Protocol (MCP) acts as a standardization layer for AI agents to communicate effectively with external services such as tools, databases and predefined templates. This standard allows for “plug-and-play” tool usage rather than writing code for custom integration of each tool. The MCP server approach also enables easier scaling and deployment, as servers can run independently and be shared across multiple agents. In this case, our MCP server uses the "mcp-proxy" command to create a proxy service that can check server status endpoints efficiently and securely.
 
