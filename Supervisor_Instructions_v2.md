@@ -299,10 +299,10 @@ This tool provides the functionality for the agent to send emails via the Outloo
       ![alt text](images/wxo_tool6.png)
 
   -  Explore the Tool Info Screen. 
-    1.  Add tool descriptions
-    2.  Add descriptions for output schema
-      ![alt text](images/wxo_tool7.png)
-    3.  [Writing Tool Descriptions](https://developer.watson-orchestrate.ibm.com/getting_started/guidelines#writing-descriptions-for-tools): Allows agents to identify when to use specific tools.
+     1.  Add tool descriptions
+     2.  Add descriptions for output schema
+     3.  [Writing Tool Descriptions](https://developer.watson-orchestrate.ibm.com/getting_started/guidelines#writing-descriptions-for-tools): Allows agents to identify when to use specific tools.
+        ![alt text](images/wxo_tool7.png)
 
 #
 #
