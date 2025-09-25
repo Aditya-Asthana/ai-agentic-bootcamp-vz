@@ -226,7 +226,7 @@ In this lab, it **does not use a knowledge base**. Instead, it calls a `get_data
         ![alt text](images/wxo_agent1.png)
         ![alt text](images/wxo_agent2.png)
      3. Navigate to the Agent Builder tab.
-     3. Give your agent a name. `Network Status Agent` 
+     3. Give your agent a name. `network_status_agent` 
         - If you're in a shared WXO instance remember to make your name is unique.  
      4. Add a description for your agent. 
          - [Writing Descriptions](https://developer.watson-orchestrate.ibm.com/getting_started/guidelines#writing-descriptions-for-agents): It is necessary to provide well-crafted descriptions for your agents. These descriptions are used by supervisor agents to determine how to route user requests. It helps the agent decide when to consume this agent as a collaborator when it is added to the agent’s collaborator list. 
@@ -319,9 +319,9 @@ This agent definition links the Communications Agent with the `outlook_email` to
      2. To create a new agent click on **All agents → Create Agent → Enter name and description for your agent → Create**
 
         ![alt text](images/wxo_agent1.png)
-        ![alt text](images/wxo_agent2.png)
+        ![alt text](images/wxo_agent8.png)
 
-     3. Give your agent a name. `Communications Agent` 
+     3. Give your agent a name. `communications_agent` 
         - If you're in a shared WXO instance remember to make your name is unique.  
      4. Add a description for your agent. 
          - [Writing Descriptions](https://developer.watson-orchestrate.ibm.com/getting_started/guidelines#writing-descriptions-for-agents): It is necessary to provide well-crafted descriptions for your agents. These descriptions are used by supervisor agents to determine how to route user requests. It helps the agent decide when to consume this agent as a collaborator when it is added to the agent’s collaborator list. 
@@ -330,8 +330,8 @@ This agent definition links the Communications Agent with the `outlook_email` to
    - Assign the `Send Email Outlook` Tool to the Communications Agent
      1. Scroll down to the **Toolset** section and click on "Add Tool". 
      2. Since we have already added the `Send Email Outlook` tool to our instance, we can select and add it to the agent.
-      ![alt text](images/wxo_agent4.png)
-      ![alt text](images/wxo_agent5.png)
+      ![alt text](images/wxo_agent9.png)
+      ![alt text](images/wxo_agent10.png)
 
    - Lastly add instructions to the Communicaitons Agent
      1. Scroll down to the **Behavior** section and add the following instructions.
