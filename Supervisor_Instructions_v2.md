@@ -542,7 +542,7 @@ This section wires up the Supervisor so it can orchestrate the end-to-end flow f
 
 #### 0) Prerequisites (verify first)
 Make sure these are already imported and visible:
-- Tools: `get_data` (OpenAPI), `check_server_status` (Python), `diagnose_incident_log` (Python), and (optionally) `outlook_email` (OpenAPI)
+- Tools: `get_data` (OpenAPI), `check_server_status` (MCP Server), `diagnose_incident_log` (Python), and (optionally) `outlook_email` (OpenAPI)
   - Check with: `orchestrate tools list`
 - Agents: `network_status_agent`, `server_status_agent`, `incident_diagnosis_agent`, `communications_agent`
   - Check with: `orchestrate agents list`

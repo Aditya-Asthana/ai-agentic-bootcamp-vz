@@ -13,6 +13,7 @@
         "/data": {
             "get": {
                 "summary": "Get Data",
+                "description": "This tool used to retrieve data for the network status agent",
                 "operationId": "get_data_tool",
                 "responses": {
                     "200": {
