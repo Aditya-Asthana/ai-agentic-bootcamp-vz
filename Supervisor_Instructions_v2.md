@@ -500,6 +500,7 @@ This toolkit provides the MCP server that acts as a tool and allows the agent to
     
 ``` 
 - Verify: `orchestrate tools list` → you should see `mcp_server_status_tool:check_server_status`
+- https://developer.watson-orchestrate.ibm.com/tools/toolkits#importing-toolkits
 
 > **Console option (SaaS):** From the Orchestrate web console, MCP server can be imported as a tool during agent configuration via the console under the toolset section. Go to **Toolset → Add tool → Import from MCP Server → Add MCP Server → Enter Server name, Description, Install Command → Connect → Turn on Activation Toggle**
 
