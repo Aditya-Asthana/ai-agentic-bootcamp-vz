@@ -15,7 +15,10 @@
   - [Lab 2: Agent Development Kit](#lab-2:-agent-development-kit)    
     - [The Incident Diagnosis Agent](#the-incident-diagnosis-agent) 
     - [The Server Status Agent](#the-server-status-agent)
-    - [The Supervisor Agent](#the-supervisor-agent)  
+    - [The Supervisor Agent](#the-supervisor-agent)
+  - [Lab 3: Evaluation Framework](#lab-3:-evaluation-framework)
+    - [Creating an Evaluation Dataset](#creating-an-evaluation-dataset)
+    - [Evaluating agents and tools](#evaluating-agents-and-tools)  
   - [Summary](#summary) 
 
 ## Introduction  
@@ -606,6 +609,68 @@ By default, new agents start with “Hello! I am watsonx Orchestrate, an AI assi
 
 
 The **Supervisor Agent** is now ready. It provides a single conversational entry point and automatically delegates tasks to the right agent, enabling an end-to-end incident flow.
+
+---
+## Lab 3: Evaluation Framework
+
+The Evaluation framework in the ADK is built to measure performance and analyze agent behavior by comparing simulated agent interactions, known as trajectories, with predefined set of reference data. It helps support the entire iterative process of agent development cycle and provides necessary tools to generate the predefined reference data. 
+
+#### **Evaluation Process**:  
+  - **User story**: A comprehensive description that provides all necessary context and goals for a specific interaction with an agent. It includes user information, goal description, and overall interaction context. The user story drives the evaluation process by defining what the agent should accomplish.
+  - **Target agent**: The agent being evaluated during the evaluation process. This is the agent whose behavior and performance are tested against predefined user story and expected outcomes.
+  - **User agent**: An LLM powered agent that follows instructions from the user story and simulates user interaction during evaluation. It sends messages to the target agent mimicking real user behavior to test the target agent's responses.
+
+Evaluation process is driven by letting the user agent interact with the target agent based on the user story context and goals, then comparing the target agent's responses to expected outcomes for assessing performance.
+
+#### **Success Criteria**: 
+**Trajectory**: Sequence of actions taken by an agent in response to user query. It represents the entire path of interactions and decisions made by the agent during the evaluation process.
+
+A trajectory is successful when:
+  1. **Tool Call**: Agent calls required tools in the correct order with th expected input parameters
+  2. **Summary**: Agent generates a high quality summary that effectively addresses the user's query.
+
+When both conditions are met, the evaluation framework marks the **Journey Success** metric with a boolean value which contributes to the agent performance. 
+
+#### **Ground truth datasets**: 
+
+Ground truth dataset is a structured reference data used to bench and evaluate agent performance. These datasets are formatted in JSON and include:
+  - Full conversation context: Complete interaction scenarios
+  - Tool call sequences: Expected sequence of tool calls with required parameters
+   - Dependency graphs: Logical order of operations through **goals** field.
+   - Expected final summaries: Target responses with keywords.
+
+ The Evaluation framework uses the grouth truth/ correct responses as a reference dataset to score the agent behavior and identify improvement areas. 
+
+
+### **Creating an evaluation dataset**:
+
+Use the **generate** command to automatically create structured ground truth datasets from **user stories** and **tool definition**. It generates structured test cases for consistent and automated agent evaluation. Uses tool definitions to generate accurate tool call sequences. 
+
+Ensure you have the following prior to running **generate** command:
+1. Tool definitions: Must be a python file, use @ tool decorator, include descriptive docstrings, top level functions (not inside classes), have typed arguments (str, int, etc.) and return JSON-serialized values.
+
+  ![alt text](images/eval1.png)
+
+2. User stories: Prepare a .csv file containing user stories, where each row contains - a natural language description of the user's goal (story), and the name of the agent responsible for handling the story (agent)
+
+  ![alt text](images/eval2.png)
+
+You can now run the generate command:
+
+  `orchestrate evaluations generate --stories-path <path-to-stories> --tools-path <path-to-tools> --env-file <path-to-env>`
+
+The generated dataset is stored in `network_status_agent_test_cases` folder and `network_status_agent_snapshot_llm.json` stores each analyzed story along with sequence of tool calls required.
+
+Refer to synthetic test cases generated, to understand the following fields:
+
+  ![alt text](images/eval3.png)
+
+  - agent: Name of the agent being evaluated
+  - goals: Represents dependency graph i.e. logical order of tool calls. Each key is a unique goal name and each value is an array of goals that depend on completion of this goal.
+  - goal_details: Detailed list of tool calls and final text response each agent makes. Includes details such as type, name, arguments, response, keywords.
+  - story: Describes main storyline
+  - starting_sentence: User's first utterance
+
 
 
 ---
