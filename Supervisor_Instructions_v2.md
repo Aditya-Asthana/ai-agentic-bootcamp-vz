@@ -625,9 +625,9 @@ Evaluation process is driven by letting the user agent interact with the target 
 #### **Success Criteria**: 
   - **Trajectory**: Sequence of actions taken by an agent in response to user query. It represents the entire path of interactions and decisions made by the agent during the evaluation process.
 
-  A trajectory is successful when:
-    1. **Tool Call**: Agent calls required tools in the correct order with th expected input parameters
-    2. **Summary**: Agent generates a high quality summary that effectively addresses the user's query.
+  - A trajectory is successful when:
+      1. **Tool Call**: Agent calls required tools in the correct order with th expected input parameters
+      2. **Summary**: Agent generates a high quality summary that effectively addresses the user's query.
 
 When both conditions are met, the evaluation framework marks the **Journey Success** metric with a boolean value which contributes to the agent performance. 
 
