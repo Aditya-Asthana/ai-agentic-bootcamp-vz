@@ -623,11 +623,11 @@ The Evaluation framework in the ADK is built to measure performance and analyze 
 Evaluation process is driven by letting the user agent interact with the target agent based on the user story context and goals, then comparing the target agent's responses to expected outcomes for assessing performance.
 
 #### **Success Criteria**: 
-**Trajectory**: Sequence of actions taken by an agent in response to user query. It represents the entire path of interactions and decisions made by the agent during the evaluation process.
+  - **Trajectory**: Sequence of actions taken by an agent in response to user query. It represents the entire path of interactions and decisions made by the agent during the evaluation process.
 
-A trajectory is successful when:
-  1. **Tool Call**: Agent calls required tools in the correct order with th expected input parameters
-  2. **Summary**: Agent generates a high quality summary that effectively addresses the user's query.
+  A trajectory is successful when:
+    1. **Tool Call**: Agent calls required tools in the correct order with th expected input parameters
+    2. **Summary**: Agent generates a high quality summary that effectively addresses the user's query.
 
 When both conditions are met, the evaluation framework marks the **Journey Success** metric with a boolean value which contributes to the agent performance. 
 
@@ -641,6 +641,7 @@ Ground truth dataset is a structured reference data used to bench and evaluate a
 
  The Evaluation framework uses the grouth truth/ correct responses as a reference dataset to score the agent behavior and identify improvement areas. 
 
+---
 
 ### **Creating an evaluation dataset**:
 
