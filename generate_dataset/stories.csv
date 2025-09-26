@@ -1,0 +1,11 @@
+story,agent
+My username is JoneDoe. I want to know the status of site S003.,network_status_agent
+My username is JoneDoe. Can you provide me a table of all the cell towers in the system with their relevant status?,network_status_agent
+My username is JoneDoe. I want to know why site S004 is down.,network_status_agent
+You want to check the status of site S003. The site URL is https://www.amazon.com,network_status_agent
+You want to know the status of site S002.,network_status_agent
+You want to know the status of site S001.,network_status_agent
+My username is JerrySmith. I want to know why site S001 is down.,network_status_agent
+My username is JerrySmith. I want to know the status of site S002 in my area.,network_status_agent
+My username is EricaTice. I want to know why site S003 is down.,network_status_agent
+My username is Tom. Can you provide me a list of all the cell towers in the system with their relevant status?,network_status_agent
