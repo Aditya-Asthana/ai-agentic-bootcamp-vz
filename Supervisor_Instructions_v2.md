@@ -672,7 +672,98 @@ Refer to synthetic test cases generated, to understand the following fields:
   - story: Describes main storyline
   - starting_sentence: User's first utterance
 
+### **Evaluating agents and tools** 
 
+The **evaluate** command lets you test and benchmark your agents using ground truth datasets. The evaluation process compares agent behavior to expected outcomes and provides detailed metrics. It measures tool call accuracy and response quality. Generates detailed performance metrics in a summary table, which is displayed and saved as CSV. 
+
+- The user interactions outlined in your datasets are simulated by the system. 
+- The ground truth dataset is compared step-by-step with the agent's response.
+
+You can now run the evaluate command:
+
+  `orchestrate evaluations evaluate --test-paths path1,path2 --output-dir output_directory`
+
+#### **Summary Metrics table**: 
+Check the `output_directory/summary_metrics.csv` for the summary matrix csv file or the command line interface output for the generated table.
+
+Sample summary matrix and metrics explanation
+
+![alt text](images/eval_table.png)
+
+![alt text](images/eval_table_explain.png)
+
+Metrics Category:
+  - Workflow Execution Metrics (total_steps, llm_step, avg_resp_time)
+  - Tool Usage Metrics (total_tool_calls, expected_tool_calls, correct_tool_calls, relevant_tool_calls, tool_calls_with_incorrect_parameter, tool_call_recall, tool_call_precision)
+  - Routing Metrics (total_routing_calls, relevant_routing_calls, agent_routing_accuracy)
+  - Output Quality Metrics (text_match, is_success)
+  - Performance & Efficiency Metrics (avg_resp_time)
+
+Examples of different scenarios:
+  
+  ### 1. Perfect Execution Case: 
+
+    | Metric | Value |
+    |--------|-------|
+    | total_steps | 4 |
+    | llm_step | 2 |
+    | total_tool_calls | 1 |
+    | expected_tool_calls | 1 |
+    | correct_tool_calls | 1 |
+    | tool_call_recall | 1.0 |
+    | tool_call_precision | 1.0 |
+    | text_match | Summary Matched |
+    | is_success | True |    
+    
+- The agent made exactly one correct tool call as expected.
+- The final output matched perfectly with the ground truth.
+- Both recall and precision are 100%, showing no extra or missed calls.
+- This is an ideal workflow with perfect tool usage and reasoning
+
+### 2. Over-Calling Issue: 
+     
+    | Metric | Value |
+    |--------|-------|
+    | total_steps | 24 |
+    | total_tool_calls | 5 |
+    | expected_tool_calls | 1 |
+    | correct_tool_calls | 1 |
+    | tool_call_recall | 1.0 |
+    | tool_call_precision | 0.2 |
+    | text_match | Summary Matched |
+    | is_success | False |
+
+- The agent over-called tools, making 5 calls instead of 1.
+- While the correct call was made, 4 unnecessary calls caused low precision (0.2).
+- Final text matched correctly, but workflow failed due to inefficiency and noise.
+- Action needed: Optimize tool-selection logic to avoid redundant calls
+
+### 3. Summarization/Reasoning Failure: 
+
+    | Metric | Value |
+    |--------|-------|
+    | total_steps | - |
+    | total_tool_calls | 1 |
+    | expected_tool_calls | 1 |
+    | correct_tool_calls | 1 |
+    | tool_call_recall | 1.0 |
+    | tool_call_precision | 1.0 |
+    | text_match | Summary MisMatched |
+    | is_success | False  |
+
+- The tool calls were perfect (both recall and precision at 100%).
+- However, the final generated summary was incorrect, leading to failure.
+- Root cause lies in LLM reasoning or summarization, not tool usage.
+- Action needed: Improve prompt or reasoning layer to align final outputs.
+
+### 4. General success trend
+
+  If you see these trend across multiple synthetic test cases:  
+    tool_call_recall = 1.0  
+    tool_call_precision = 1.0  
+    text_match = Summary Matched  
+    is_success = True  
+    These represent ideal execution, where the agent performed optimally across all dimensions.
 
 ---
 
