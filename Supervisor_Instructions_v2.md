@@ -672,6 +672,10 @@ Refer to synthetic test cases generated, to understand the following fields:
   - story: Describes main storyline
   - starting_sentence: User's first utterance
 
+
+  
+---
+
 ### **Evaluating agents and tools** 
 
 The **evaluate** command lets you test and benchmark your agents using ground truth datasets. The evaluation process compares agent behavior to expected outcomes and provides detailed metrics. It measures tool call accuracy and response quality. Generates detailed performance metrics in a summary table, which is displayed and saved as CSV. 
