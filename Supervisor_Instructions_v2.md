@@ -78,8 +78,7 @@ Watsonx Orchestrate is IBM’s platform for creating, managing, and running AI-d
 
 1. **Environment Assignment** 
    - Ensure you've created an IBM Cloud account.
-   - If you're assigned to a group follow the instructions on the table to assign yourself to a group. https://wkf.ms/41ugV3u
-    ![alt text](images/form.png)
+   - Fill out the following form: https://wkf.ms/41ugV3u
 2. **Join IBM Cloud Account** 
    - You should recive an email with a link to join an IBM Cloud account
    - Accept the invite and sign in to your IBM Cloud Account
