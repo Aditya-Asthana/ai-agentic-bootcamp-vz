@@ -302,7 +302,15 @@ This tool provides the functionality for the agent to send emails via the Outloo
 
   -  Explore the Tool Info Screen. 
      1.  Add tool descriptions
+        ```
+        Sends an email to specified recipients. This tool should only be invoked when the user explicitly requests to SEND an email. The agent must only use the email address that is provided by the user and should never generate or create email addresses.
+        ```
      2.  Add descriptions for output schema
+      
+      Email = ```Email Address of the recipient provided by the user```
+      Content = ```Content of the email as a HTML string. Don't use new line character's, only use a single HTML string.```
+      Subject = ```Subject line of the email as a string.```
+
      3.  [Writing Tool Descriptions](https://developer.watson-orchestrate.ibm.com/getting_started/guidelines#writing-descriptions-for-tools): Allows agents to identify when to use specific tools.
         ![alt text](images/wxo_tool7.png)
 
