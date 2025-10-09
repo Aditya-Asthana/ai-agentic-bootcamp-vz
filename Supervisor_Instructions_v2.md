@@ -403,7 +403,7 @@ It relies on a Python tool to parse logs and a knowledge base of resolution guid
 #### 1) Import the Incident Diagnosis Tool
 This tool provides log analysis capabilities so the agent can extract error patterns and classify incidents.
 - Review the python tool
-  1. Open the `diagnose_incident_tool.py` file in VS Code
+  1. Open the `diagnose_incident_tool.py` file under `wxo_assets/tools` in VS Code
       ![alt text](images/diagnose_incident_tool.png)
   2. This python function mimics log analysis using keyword matching. 
   3. Notice how the `@tool` decorator. This defines the function as a tool for the watsonx orchestrate extention. Notice how the toll desciption is already defined here.
@@ -419,8 +419,38 @@ This tool provides log analysis capabilities so the agent can extract error patt
 
 <!-- > **Console option (SaaS):** From the Orchestrate web console, navigate to **Tools → Add tool → Python**, then upload `wxo_assets/tools/diagnose_incident_tool.py`. -->
 
+#### 2) Import the Incident Resolution Knowledge Base
+Knowledge Bases refer to Vector Stores that allow your Agents to query unstructured data such as documents. You can use the WXO interal Knowledge Base or connect your own vector store externally. 
 
-#### 2) Import the Incident Diagnosis Agent YAML
+The knowledge base in our case provides mappings from error types to recommended resolution plans. The agent consults it after the tool has identified the root cause.
+
+  1. Run: `orchestrate knowledge-bases import -f wxo_assets/knowledge_bases/incident_resolution_guides.yaml`  
+  2. Verify: `orchestrate knowledge-bases list` → you should see `incident_resolution_guides`
+  3. https://developer.watson-orchestrate.ibm.com/knowledge_base/deploy_kb
+
+
+> **WXO ADK Console option:** You can import the Knowledge Base from the SaaS Console by following these steps.
+>- Create a Knowledge Base
+>- 1. Navigate to the Agent Builder tab.
+>-    ![alt text](images/wxo_homepage.png)
+>- 2. Find and open the `incident_diagnosis_agent`
+>-    ![alt text](images/kb.png)
+>- 3. Scroll down to the Knowledge section and click `Choose Knowledge`
+>-    ![alt text](images/kb2.png)
+>- 4. Select Upload Files and upload `/wxo_assets/knowledge_bases/backhaul_failure_guide.pdf`, `/wxo_assets/knowledge_bases/config_error_guide.pdf`, and `/wxo_assets/knowledge_bases/power_outage_guide.pdf`
+>-    ![alt text](images/kb3.png)
+>- 5. Add the following as a description:
+>-    - `Troubleshooting documentation for resolving common network incident root causes.
+>- Covers backhaul failures, power outages, and configuration errors.`
+>- 6. Save. This may take 1 min or two.
+>-  - Configure the Knowledge Base
+>- 1. Scroll down to the Knowledge section and click `Edit knowledge settings`
+>-    ![alt text](images/kb4.png)
+>- 2. Modify the retreval criteria and save
+>-    ![alt text](images/kb5.png)
+
+
+#### 3) Import the Incident Diagnosis Agent YAML
 This agent definition links the `diagnose_incident_log` tool with the `incident_resolution_guides` knowledge base and enforces a strict output format.
 
 - Review the Agent Yaml
@@ -437,39 +467,6 @@ This agent definition links the `diagnose_incident_log` tool with the `incident_
   3. https://developer.watson-orchestrate.ibm.com/agents/import_agent
 
 <!-- > **Console option (SaaS):** Go to **Agents → Add agent**, upload `wxo_assets/agents/incident_diagnosis_agent.yaml`, then save. -->
-
-#### 3) Import the Incident Resolution Knowledge Base
-Knowledge Bases refer to Vector Stores that allow your Agents to query unstructured data such as documents. You can use the WXO interal Knowledge Base or connect your own vector store externally. 
-- The knowledge base in our case provides mappings from error types to recommended resolution plans. The agent consults it after the tool has identified the root cause.
-- Create a Knowledge Base
-  1. Navigate to the Agent Builder tab.
-              ![alt text](images/wxo_homepage.png)
-  2. Find and open the `incident_diagnosis_agent`
-      ![alt text](images/kb.png)
-  3. Scroll down to the Knowledge section and click `Choose Knowledge`
-      ![alt text](images/kb2.png)
-  4. Select Upload Files and upload `/wxo_assets/knowledge_bases/backhaul_failure_guide.pdf`, `/wxo_assets/knowledge_bases/config_error_guide.pdf`, and `/wxo_assets/knowledge_bases/power_outage_guide.pdf`
-      ![alt text](images/kb3.png)
-  5. Add the following as a description:
-     - `Troubleshooting documentation for resolving common network incident root causes.
-  Covers backhaul failures, power outages, and configuration errors.`
-  6. Save. This may take 1 min or two.
-- Configure the Knowledge Base
-  1. Scroll down to the Knowledge section and click `Edit knowledge settings`
-      ![alt text](images/kb4.png)
-  2. Modify the retreval criteria and save
-      ![alt text](images/kb5.png)
-
-<!--  -->
-<!--  -->
-<!--  -->
-<!--  -->
-
-> **WXO ADK CLI option:** You can import the Knowledge Base from the ADK CLI by running the following commands in your terminal.
->- Run: `orchestrate knowledge-bases import -f wxo_assets/knowledge_bases/incident_resolution_guides.yaml`  
->- Verify: `orchestrate knowledge-bases list` → you should see `incident_resolution_guides`
-<!-- 
-> **Console option (SaaS):** Go to **Knowledge Bases → Add knowledge base**, then upload `wxo_assets/knowledge_bases/incident_resolution_guides.yaml`. -->
 
 #### 4) Quick sanity checks
 - Provide a sample log (e.g., containing a power outage error).  
@@ -502,12 +499,7 @@ Model Context Protocol (MCP) acts as a standardization layer for AI agents to co
 
 1. Run: 
 ```
-  orchestrate toolkits import \
-     --kind mcp \
-     --name mcp_server_status_tool \
-     --description "MCP server acts as a tool for server status agent" \
-     --command "uvx mcp-proxy https://server-status-mcp.20mlq6u90ef7.us-south.codeengine.appdomain.cloud/sse" \
-     --tools "*"
+orchestrate toolkits import --kind mcp --name mcp_server_status_tool --description "MCP server acts as a tool for server status agent" --command "uvx mcp-proxy https://server-status-mcp.20mlq6u90ef7.us-south.codeengine.appdomain.cloud/sse" --tools "check_server_status"
 ``` 
 2. Verify: `orchestrate tools list` → you should see `mcp_server_status_tool:check_server_status`
 3. https://developer.watson-orchestrate.ibm.com/tools/toolkits#importing-toolkits

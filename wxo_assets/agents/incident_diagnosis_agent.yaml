@@ -14,5 +14,5 @@ instructions: |
 collaborators: []
 tools:
   - diagnose_incident_log
-# knowledge_base:
-#   - incident_resolution_guides
+knowledge_base:
+  - incident_resolution_guides
