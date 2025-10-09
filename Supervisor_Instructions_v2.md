@@ -47,6 +47,7 @@ Before starting the lab, please ensure you have the following installed and conf
 
 2. **Python 3.11+**  
    - Download from [python.org](https://www.python.org/downloads/release/python-3110/).  
+   - If on windows, download Python 3.11 from [Microsoft Store](https://apps.microsoft.com/detail/9NRWMJP3717K?hl=en-us&gl=US&ocid=pdpshare)
    - Verify installation:  
      ```bash
      python3 --version
@@ -54,7 +55,6 @@ Before starting the lab, please ensure you have the following installed and conf
 
 3. **IDE (Visual Studio Code)**  
    - Download from [code.visualstudio.com](https://code.visualstudio.com/). 
-   - If on windows, download Python 3.11 from [Microsoft Store](https://apps.microsoft.com/detail/9NRWMJP3717K?hl=en-us&gl=US&ocid=pdpshare)
    - Install recommended extensions:  
      - *Python* (for coding and debugging).  
      - *YAML* (for agent and tool configuration files).
@@ -89,57 +89,6 @@ Watsonx Orchestrate is IBM’s platform for creating, managing, and running AI-d
   ![alt text](images/siu_3.png)
    - If you don't see any resources under AI/ML in your IBM Cloud Account kindly reachout to an instructor for assistance. 
    - Once you have access to an Orchestrate instance you may continue to the next section
-
----
-#### Local Dev Environment Setup
-
-- Run the following command below to clone the repository. This will give you the foundational resources to complete the bootcamp.
-
-```bash
-  git clone https://github.com/Aditya-Asthana/ai-agentic-bootcamp-vz.git
-```  
-
-- Now open the project folder in vscode, and navigate to the terminal within the project directory.
-![alt text](images/vscode_1.png)
-
-- [Installing the ADK](https://developer.watson-orchestrate.ibm.com/getting_started/installing#setting-up-and-installing-the-adk): Once you the terminal appears on your screen, ensure you are in the folder where the contents of the repo live. Now type in the following commnads line by line. Ensure you see (bootcamp_venv) in the terminal line before running pip install
-  - MacOS :
-     
-    ```
-        python3.11 -m venv bootcamp_venv
-        source bootcamp_venv/bin/activate
-        pip install ibm-watsonx-orchestrate
-    ```
-  - Windows:
-    ```
-        python -m venv bootcamp_venv
-        bootcamp_venv/Scripts/activate
-        pip install ibm-watsonx-orchestrate
-    ```   
-
-Here, we are creating a virtual environment for our dependencies to live. This allows our agents to work in an isolated workspace with out the interference of other global Python libraries on your device. After, we install the SaaS version of Watsonx Orchestrate so we can import our future agents and tools through the CLI.
-
-<!-- - Now we will rename our `.env_example` to `.env` through vscode. To do so, click on the pages icon on the left side and find the `.env_example` file. Right click on the file and rename it to `.env`. This will be a place where we store our credentials so that we can connect to Watsonx Orchestrate. -->
-
-#### Orchestrate Instance Details
-- Navigate to the IBM Cloud resource list. And launch Orchestrate.
-      ![alt text](images/siu_2.png)
-  ![alt text](images/siu_3.png)
-- Navigate to the Orchestrate Settings > API details. And Save the URL as we will use it in a later step.
-    ![alt text](images/siu_4.png)
-    ![alt text](images/key.png)
-- Click on the Generate API Key button. It should redirect you to the IBM Cloud IAM API Key page.
-      ![alt text](images/key2.png)
-- Click Create and provide a name. Leave all other settings default
-  ![alt text](images/key3.png)
-- Once complete you should recieve an API Key. Save this key.
-  ![alt text](images/key4.png)
-    
-
-#### ADK Setup
-1. [Creating an environment](https://developer.watson-orchestrate.ibm.com/environment/initiate_environment#creating-an-environment): Go to vscode and open the terminal. Make sure you are in the directory inside the cloned repo. The use the command: `orchestrate env add -n <environment-name> -u <service-instance-url> --type ibm_iam --activate`. Replace the environment-name with a name of your choice, and the service-instance-url with the url from your env file. 
-
-2. [Activating an environment](https://developer.watson-orchestrate.ibm.com/environment/initiate_environment#activating-an-environment): Now run `orchestrate env activate <environment-name>` and replace environment-name with the name you chose from before.
 
 ---
 ## Lab1: Create Your First Agent  
@@ -388,11 +337,60 @@ This agent definition links the Communications Agent with the `outlook_email` to
 
 
  The **Communications Agent** is now ready. It can draft incident updates and, when configured with Outlook, send them directly to stakeholders.
-
 ---
 ## Lab 2: Agent Development Kit
 The Agent Development Kit (ADK) gives you a set of developer-focused tools to build, test, and manage agents in watsonx Orchestrate. With the ADK, you take full control of agent design using a lightweight framework and a simple CLI.
 Define agents in clear YAML or JSON files, create custom Python tools, and manage the entire agent lifecycle with just a few commands. 
+
+#### Local Dev Environment Setup
+
+- Run the following command below to clone the repository. This will give you the foundational resources to complete the bootcamp.
+
+```bash
+  git clone https://github.com/Aditya-Asthana/ai-agentic-bootcamp-vz.git
+```  
+
+- Now open the project folder in vscode, and navigate to the terminal within the project directory.
+![alt text](images/vscode_1.png)
+
+- [Installing the ADK](https://developer.watson-orchestrate.ibm.com/getting_started/installing#setting-up-and-installing-the-adk): Once you the terminal appears on your screen, ensure you are in the folder where the contents of the repo live. Now type in the following commnads line by line. Ensure you see (bootcamp_venv) in the terminal line before running pip install
+  - MacOS :
+     
+    ```
+        python3.11 -m venv bootcamp_venv
+        source bootcamp_venv/bin/activate
+        pip install ibm-watsonx-orchestrate
+    ```
+  - Windows:
+    ```
+        python3.11 -m venv bootcamp_venv
+        bootcamp_venv/Scripts/activate
+        pip install ibm-watsonx-orchestrate
+    ```   
+
+Here, we are creating a virtual environment for our dependencies to live. This allows our agents to work in an isolated workspace with out the interference of other global Python libraries on your device. After, we install the SaaS version of Watsonx Orchestrate so we can import our future agents and tools through the CLI.
+
+<!-- - Now we will rename our `.env_example` to `.env` through vscode. To do so, click on the pages icon on the left side and find the `.env_example` file. Right click on the file and rename it to `.env`. This will be a place where we store our credentials so that we can connect to Watsonx Orchestrate. -->
+
+#### Orchestrate Instance Details
+- Navigate to the IBM Cloud resource list. And launch Orchestrate.
+      ![alt text](images/siu_2.png)
+  ![alt text](images/siu_3.png)
+- Navigate to the Orchestrate Settings > API details. And Save the URL as we will use it in a later step.
+    ![alt text](images/siu_4.png)
+    ![alt text](images/key.png)
+- Click on the Generate API Key button. It should redirect you to the IBM Cloud IAM API Key page.
+      ![alt text](images/key2.png)
+- Click Create and provide a name. Leave all other settings default
+  ![alt text](images/key3.png)
+- Once complete you should recieve an API Key. Save this key.
+  ![alt text](images/key4.png)
+    
+
+#### ADK Setup
+1. [Creating an environment](https://developer.watson-orchestrate.ibm.com/environment/initiate_environment#creating-an-environment): Go to vscode and open the terminal. Make sure you are in the directory inside the cloned repo. The use the command: `orchestrate env add -n <environment-name> -u <service-instance-url> --type ibm_iam --activate`. Replace the environment-name with a name of your choice, and the service-instance-url with the url from your env file. 
+
+2. [Activating an environment](https://developer.watson-orchestrate.ibm.com/environment/initiate_environment#activating-an-environment): Now run `orchestrate env activate <environment-name>` and replace environment-name with the name you chose from before.
 
   - If you havent completed the local dev environment setup go back and ensure `ibm-watsonx-orchestrate` is installed in your venv and your venv is active.
   - Run `orchestrate --help` to see a list of all the available commands.
