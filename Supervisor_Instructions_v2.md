@@ -155,16 +155,6 @@ In this lab, it **does not use a knowledge base**. Instead, it calls a `get_data
       1.  Add tool descriptions
       2.  Add descriptions for output schema
       3.  [Writing Tool Descriptions](https://developer.watson-orchestrate.ibm.com/getting_started/guidelines#writing-descriptions-for-tools): Allows agents to identify when to use specific tools.
-  #
-  #
-  #
-
-
-
-
-
-
-
 
 > **WXO ADK CLI option:** You can import the OpenAPI tool from the ADK CLI by running the following commands in your terminal.
 > - Run: `orchestrate tools import -k openapi -f wxo_assets/tools/get_data_openapi.json`
@@ -264,9 +254,6 @@ This tool provides the functionality for the agent to send emails via the Outloo
      3.  [Writing Tool Descriptions](https://developer.watson-orchestrate.ibm.com/getting_started/guidelines#writing-descriptions-for-tools): Allows agents to identify when to use specific tools.
         ![alt text](images/wxo_tool7.png)
 
-#
-#
-#
 
 > **WXO ADK CLI option:** You can import the tool from the ADK CLI by running the following commands in your terminal.
 >- Run: `orchestrate tools import -k openapi -f wxo_assets/tools/outlook_email_openapi.json`  
@@ -385,7 +372,6 @@ Here, we are creating a virtual environment for our dependencies to live. This a
 - Click Create and provide a name. Leave all other settings default
   ![alt text](images/key3.png)
 - Once complete you should recieve an API Key. Save this key.
-  ![alt text](images/key4.png)
     
 
 #### ADK Setup
@@ -393,6 +379,9 @@ Here, we are creating a virtual environment for our dependencies to live. This a
 
 2. [Activating an environment](https://developer.watson-orchestrate.ibm.com/environment/initiate_environment#activating-an-environment): Now run `orchestrate env activate <environment-name>` and replace environment-name with the name you chose from before.
 
+3. After the ADK Setup, Go to `.env_example` file in vscode and store your `service-instance-url` as `WO_INSTANCE` and `API key` as `WO_API_KEY`. Rename the file as `.env`.
+
+---
 
 ### The Incident Diagnosis Agent
 
@@ -429,7 +418,7 @@ The knowledge base in our case provides mappings from error types to recommended
   3. https://developer.watson-orchestrate.ibm.com/knowledge_base/deploy_kb
 
 
-> **WXO ADK Console option:** You can import the Knowledge Base from the SaaS Console by following these steps.
+> **WXO ADK Console option:** You can also import the Knowledge Base from the SaaS Console by following these steps.
 >- Create a Knowledge Base
 >- 1. Navigate to the Agent Builder tab.
 >-    ![alt text](images/wxo_homepage.png)
@@ -528,10 +517,9 @@ This binds the **Server Status Agent** to the `check_server_status` tool you jus
 - **Incorrect binding:** Verify that the agent YAML references `check_server_status` exactly as the tool name.  
 - **Network restrictions:** Ensure the SaaS environment can reach the target server (some internal endpoints may be blocked).  
 
----
-
 The **Server Status Agent** is now ready. It can be queried directly or invoked by the Supervisor Agent to check server availability in real time.
 
+---
 
 ### The Supervisor Agent
 
@@ -556,6 +544,7 @@ If anything is missing, complete those agent/tool steps first.
 This registers the **Supervisor Agent** and declares its collaborators (the four specialist agents).
 
 - Open the `supervisor_agent.yaml` and modify the collaborator agent names to the correct names of your agents.
+- To get the correct collaborator agent names, run : `orchestrate agents list` and modify in the `supervisor_agent.yaml`.
 - Run: `orchestrate agents import -f wxo_assets/agents/supervisor_agent.yaml`  
 - Verify: `orchestrate agents list` → you should see `supervisor_agent`
 
