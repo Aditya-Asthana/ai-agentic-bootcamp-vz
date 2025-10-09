@@ -337,6 +337,7 @@ This agent definition links the Communications Agent with the `outlook_email` to
 
 
  The **Communications Agent** is now ready. It can draft incident updates and, when configured with Outlook, send them directly to stakeholders.
+
 ---
 ## Lab 2: Agent Development Kit
 The Agent Development Kit (ADK) gives you a set of developer-focused tools to build, test, and manage agents in watsonx Orchestrate. With the ADK, you take full control of agent design using a lightweight framework and a simple CLI.
@@ -391,11 +392,6 @@ Here, we are creating a virtual environment for our dependencies to live. This a
 1. [Creating an environment](https://developer.watson-orchestrate.ibm.com/environment/initiate_environment#creating-an-environment): Go to vscode and open the terminal. Make sure you are in the directory inside the cloned repo. The use the command: `orchestrate env add -n <environment-name> -u <service-instance-url> --type ibm_iam --activate`. Replace the environment-name with a name of your choice, and the service-instance-url with the url from your env file. 
 
 2. [Activating an environment](https://developer.watson-orchestrate.ibm.com/environment/initiate_environment#activating-an-environment): Now run `orchestrate env activate <environment-name>` and replace environment-name with the name you chose from before.
-
-  - If you havent completed the local dev environment setup go back and ensure `ibm-watsonx-orchestrate` is installed in your venv and your venv is active.
-  - Run `orchestrate --help` to see a list of all the available commands.
-  - Run `orchestrate models list` to see all the available LLMs you can assign to agents. 
-  - Read the documentation to get a better understanding https://developer.watson-orchestrate.ibm.com/getting_started/what_is
 
 
 ### The Incident Diagnosis Agent
