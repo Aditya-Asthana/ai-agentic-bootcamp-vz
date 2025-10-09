@@ -6,13 +6,13 @@
   - [Table of Contents](#table-of-contents)  
   - [Introduction](#introduction)  
     - [Pre-requisites](#pre-requisites)
-    - [Watsonx Orchestrate Setup](#watsonx-orchestrate-setup)  
-    - [Local Dev Environment Setup](#local-dev-environment-setup)  
+    - [Watsonx Orchestrate Setup](#watsonx-orchestrate-setup)   
   - [Lab 1: Create Your First Agent](#lab-1:-create-your-first-agent) <!--Tag not working?-->
     <!-- - [AI Agent Configuration](#ai-agent-configuration)   -->
     - [The Network Status Agent](#the-network-status-agent)
     - [The Communication Agent](#the-communication-agent)
-  - [Lab 2: Agent Development Kit](#lab-2:-agent-development-kit)    
+  - [Lab 2: Agent Development Kit](#lab-2:-agent-development-kit) 
+    - [Local Dev Environment Setup](#local-dev-environment-setup)    
     - [The Incident Diagnosis Agent](#the-incident-diagnosis-agent) 
     - [The Server Status Agent](#the-server-status-agent)
     - [The Supervisor Agent](#the-supervisor-agent)
