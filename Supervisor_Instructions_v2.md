@@ -53,7 +53,8 @@ Before starting the lab, please ensure you have the following installed and conf
      ```   
 
 3. **IDE (Visual Studio Code)**  
-   - Download from [code.visualstudio.com](https://code.visualstudio.com/).  
+   - Download from [code.visualstudio.com](https://code.visualstudio.com/). 
+   - If on windows, download Python 3.11 from [Microsoft Store](https://apps.microsoft.com/detail/9NRWMJP3717K?hl=en-us&gl=US&ocid=pdpshare)
    - Install recommended extensions:  
      - *Python* (for coding and debugging).  
      - *YAML* (for agent and tool configuration files).
