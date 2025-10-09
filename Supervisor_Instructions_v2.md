@@ -420,23 +420,23 @@ The knowledge base in our case provides mappings from error types to recommended
 
 > **WXO ADK Console option:** You can also import the Knowledge Base from the SaaS Console by following these steps.
 >- Create a Knowledge Base
->- 1. Navigate to the Agent Builder tab.
->-    ![alt text](images/wxo_homepage.png)
->- 2. Find and open the `incident_diagnosis_agent`
->-    ![alt text](images/kb.png)
->- 3. Scroll down to the Knowledge section and click `Choose Knowledge`
->-    ![alt text](images/kb2.png)
->- 4. Select Upload Files and upload `/wxo_assets/knowledge_bases/backhaul_failure_guide.pdf`, `/wxo_assets/knowledge_bases/config_error_guide.pdf`, and `/wxo_assets/knowledge_bases/power_outage_guide.pdf`
->-    ![alt text](images/kb3.png)
->- 5. Add the following as a description:
->-    - `Troubleshooting documentation for resolving common network incident root causes.
->- Covers backhaul failures, power outages, and configuration errors.`
->- 6. Save. This may take 1 min or two.
->-  - Configure the Knowledge Base
->- 1. Scroll down to the Knowledge section and click `Edit knowledge settings`
->-    ![alt text](images/kb4.png)
->- 2. Modify the retreval criteria and save
->-    ![alt text](images/kb5.png)
+> 1. Navigate to the Agent Builder tab.
+>    ![alt text](images/wxo_homepage.png)
+> 2. Find and open the `incident_diagnosis_agent`
+>    ![alt text](images/kb.png)
+> 3. Scroll down to the Knowledge section and click `Choose Knowledge`
+>    ![alt text](images/kb2.png)
+> 4. Select Upload Files and upload `/wxo_assets/knowledge_bases/backhaul_failure_guide.pdf`, `/wxo_assets/knowledge_bases/config_error_guide.pdf`, and `/wxo_assets/knowledge_bases/power_outage_guide.pdf`
+>    ![alt text](images/kb3.png)
+> 5. Add the following as a description:
+>    - `Troubleshooting documentation for resolving common network incident root causes.
+> Covers backhaul failures, power outages, and configuration errors.`
+> 6. Save. This may take 1 min or two.
+>  - Configure the Knowledge Base
+> 1. Scroll down to the Knowledge section and click `Edit knowledge settings`
+>    ![alt text](images/kb4.png)
+> 2. Modify the retreval criteria and save
+>    ![alt text](images/kb5.png)
 
 
 #### 3) Import the Incident Diagnosis Agent YAML
