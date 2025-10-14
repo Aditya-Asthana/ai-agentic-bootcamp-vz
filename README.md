@@ -37,7 +37,7 @@ Overall, this results in **lower operational costs, reduced downtime penalties, 
 
 ## Architecture  
 
-![alt text](images/vzbootcamp.png)
+![alt text](images/bootcamp_arch4.drawio.png)
 
 The system integrates multiple specialized agents coordinated by the Supervisor Agent:  
 
