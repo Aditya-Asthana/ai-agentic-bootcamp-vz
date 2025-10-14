@@ -646,7 +646,7 @@ Ensure you have the following prior to running **generate** command:
 
 You can now run the generate command:
 
-  `orchestrate evaluations generate --stories-path <path-to-stories> --tools-path <path-to-tools> --env-file <path-to-env>`
+  `orchestrate evaluations generate --stories-path generate_dataset/stories.csv --tools-path generate_dataset/tools.py --env-file .env`
 
 The generated dataset is stored in `network_status_agent_test_cases` folder and `network_status_agent_snapshot_llm.json` stores each analyzed story along with sequence of tool calls required.
 
@@ -673,7 +673,7 @@ The **evaluate** command lets you test and benchmark your agents using ground tr
 
 You can now run the evaluate command:
 
-  `orchestrate evaluations evaluate --test-paths <path-to-generated-testcases-folder> --output-dir output_directory --env-file <path-to-env>`
+  `orchestrate evaluations evaluate --test-paths generate_dataset/network_status_agent_test_cases --output-dir output_directory --env-file .env`
 
 #### **Summary Metrics table**: 
 Check the `output_directory/summary_metrics.csv` for the summary matrix csv file or the command line interface output for the generated table.
