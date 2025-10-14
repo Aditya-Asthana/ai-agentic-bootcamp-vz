@@ -458,7 +458,12 @@ This agent definition links the `diagnose_incident_log` tool with the `incident_
 <!-- > **Console option (SaaS):** Go to **Agents → Add agent**, upload `wxo_assets/agents/incident_diagnosis_agent.yaml`, then save. -->
 
 #### 4) Quick sanity checks
-- Provide a sample log (e.g., containing a power outage error).  
+- Provide some of the sample log:
+   1. Site S005 is unreachable. Fiber cut detected between router R03 and R04. Escalated to backhaul team.
+   2. UPS unit failed at site S002. Generator did not auto-start. Site running on battery only.
+   3. BGP session dropped due to incorrect neighbor settings in config push from NOC.
+   4. Ping lost, link failure, to site S008. Investigating further...
+
 - The agent should respond with both the **error type** and the **resolution plan**.  
 
 
@@ -668,7 +673,7 @@ The **evaluate** command lets you test and benchmark your agents using ground tr
 
 You can now run the evaluate command:
 
-  `orchestrate evaluations evaluate --test-paths path1,path2 --output-dir output_directory`
+  `orchestrate evaluations evaluate --test-paths <path-to-generated-testcases-folder> --output-dir output_directory --env-file <path-to-env>`
 
 #### **Summary Metrics table**: 
 Check the `output_directory/summary_metrics.csv` for the summary matrix csv file or the command line interface output for the generated table.
