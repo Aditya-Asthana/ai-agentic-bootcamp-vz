@@ -493,7 +493,7 @@ Model Context Protocol (MCP) acts as a standardization layer for AI agents to co
 
 1. Run: 
 ```
-orchestrate toolkits import --kind mcp --name mcp_server_status_tool --description "MCP server acts as a tool for server status agent" --command "uvx mcp-proxy https://server-status-mcp.20mlq6u90ef7.us-south.codeengine.appdomain.cloud/sse" --tools "check_server_status"
+orchestrate toolkits import --kind mcp --name mcp_server_status_tool --description "MCP server acts as a tool for server status agent" --command "uvx mcp-proxy https://mcp-app.22bmtqkps1t2.us-south.codeengine.appdomain.cloud/sse" --tools "check_server_status"
 ``` 
 2. Verify: `orchestrate tools list` → you should see `mcp_server_status_tool:check_server_status`
 3. https://developer.watson-orchestrate.ibm.com/tools/toolkits#importing-toolkits
